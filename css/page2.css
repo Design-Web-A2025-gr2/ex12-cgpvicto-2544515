@@ -82,3 +82,53 @@ footer {
     color: white;
     text-align: right;
 }
+@media screen and (max-width: 800px) {
+    #conteneur-principale {
+        display: grid;
+        grid-template-columns: 0px 1fr;
+        grid-template-areas: 
+            "presentation articles";
+        gap: 10px;
+        padding: 10px;
+    }
+    .menu-conteneur {
+        position: relative;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu-lien {
+        display: none;
+        width: 100%;
+        text-align: left;
+    }
+
+    .menu-conteneur::before {
+        content: "☰";
+        font-size: 2em;
+        padding: 15px 20px;
+        color: white;
+        cursor: pointer;
+        display: block;
+    }
+
+    .menu-conteneur:hover .menu-lien,
+    .menu-conteneur:focus-within .menu-lien {
+        display: block;
+        background-color: #873559;
+    }
+}
+@media print {
+    header, .menu-conteneur {
+        display: none;
+    }
+    #conteneur-principale {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 250px;
+    grid-template-areas:
+        "articles"
+        "presentation";
+    }
+
+}
